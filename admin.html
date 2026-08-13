@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin — Jovem Brasil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  body { background: #fff; }
+  .panel { padding: 40px 0 90px; }
+  .card { background: var(--paper); border-radius: 10px; padding: clamp(20px, 3vw, 32px); margin-bottom: 26px; }
+  .field { display: grid; gap: 6px; margin-bottom: 16px; }
+  .field label { font-family: var(--util); font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey); }
+  .field input, .field select, .field textarea {
+    font: inherit; font-size: 1rem; padding: 11px 13px; border: 2px solid rgba(8,24,58,.16);
+    border-radius: 6px; background: #fff; color: var(--ink); width: 100%;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--blue); outline: none; }
+  .field .hint { font-size: 0.85rem; color: var(--grey); }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.94rem; }
+  td textarea { font: inherit; font-size: 0.88rem; width: 100%; padding: 8px 10px; border: 2px solid rgba(8,24,58,.16); border-radius: 6px; resize: vertical; }
+  td textarea:focus { border-color: var(--blue); outline: none; }
+  th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid rgba(8,24,58,.12); vertical-align: top; }
+  th { font-family: var(--util); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey); }
+  .drop {
+    margin-top: 8px; padding: 20px; text-align: center; border-radius: 8px;
+    border: 2px dashed rgba(8,24,58,.24); color: var(--grey);
+    font-family: var(--util); font-size: 0.78rem; letter-spacing: .06em; text-transform: uppercase;
+  }
+  .drop.over { border-color: var(--green); background: rgba(0,156,59,.08); color: var(--green-dark); }
+  .attached { font-family: var(--util); font-size: 0.66rem; letter-spacing: .08em; text-transform: uppercase; color: var(--green-dark); }
+  .mini { font-family: var(--util); font-size: 0.72rem; padding: 7px 12px; border-radius: 100px; border: 2px solid rgba(8,24,58,.2); background: #fff; cursor: pointer; }
+  .mini:hover { border-color: var(--green); }
+  .mini.danger:hover { border-color: #c62828; color: #c62828; }
+  .notice { background: var(--yellow); border-radius: 8px; padding: 16px 18px; font-size: 0.95rem; margin-bottom: 26px; }
+  .status { font-family: var(--util); font-size: 0.82rem; color: var(--green-dark); min-height: 1.4em; }
+  ol.steps-list { padding-left: 22px; }
+  ol.steps-list li { margin-bottom: 8px; }
+  code { font-family: var(--util); font-size: 0.86em; background: rgba(8,24,58,.07); padding: 2px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <svg class="lozenge" viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="20" r="20" fill="#009c3b"/>
+        <circle cx="20" cy="20" r="15" fill="#002776"/>
+        <circle cx="20" cy="20" r="15" fill="none" stroke="#ffd400" stroke-width="1.6"/>
+        <path d="M 0.0,-10.0 L 2.41,-3.32 L 9.51,-3.09 L 3.9,1.27 L 5.88,8.09 L 0.0,4.1 L -5.88,8.09 L -3.9,1.27 L -9.51,-3.09 L -2.41,-3.32 Z" fill="#ffffff" transform="translate(20,20) scale(0.82)"/>
+      </svg>
+      Jovem Brasil
+    </a>
+    <nav class="menu">
+      <a href="publications.html">View the site</a>
+    </nav>
+  </div>
+</header>
+
+<main class="panel">
+  <div class="wrap">
+    <h1 style="font-size:clamp(2.2rem,6vw,3.4rem)">Admin</h1>
+    <p class="lead">Enter the papers here, export <code>papers.js</code>, and upload it alongside the PDFs. Notes can be edited straight in the table in step 4.</p>
+
+    <div class="notice">
+      This page has no password, because the site is static. Keep <code>admin.html</code> out of the deploy, or lock the URL through your hosting provider.
+    </div>
+
+    <section class="card">
+      <h2 style="font-size:1.5rem">1. Start from what's live</h2>
+      <p>This page loads the current <code>data/papers.js</code> when it opens. If you're editing from another computer, load the file by hand.</p>
+      <div class="row">
+        <input type="file" id="import" style="max-width:320px">
+        <span class="status" id="status-import"></span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 style="font-size:1.5rem">2. Topics</h2>
+      <p>Topics become the buttons on the publications page.</p>
+      <div id="topic-table"></div>
+      <div class="pair" style="margin-top:18px">
+        <div class="field">
+          <label for="t-name">Topic name</label>
+          <input id="t-name" placeholder="Democracy and representation">
+        </div>
+        <div class="field">
+          <label for="t-id">Identifier</label>
+          <input id="t-id" placeholder="democracy">
+          <span class="hint">No spaces or accents. Stored in the file, never shown on the site.</span>
+        </div>
+      </div>
+      <button class="button" id="add-topic" type="button">Add topic</button>
+    </section>
+
+    <section class="card">
+      <h2 style="font-size:1.5rem">3. New paper</h2>
+      <div class="field">
+        <label for="p-title">Title</label>
+        <input id="p-title" placeholder="Cashback in the tax reform and the households it misses">
+      </div>
+      <div class="field">
+        <label for="p-authors">Authors</label>
+        <input id="p-authors" placeholder="First Last, Another Name">
+        <span class="hint">Separate with commas. They appear in exactly this order.</span>
+      </div>
+      <div class="pair">
+        <div class="field">
+          <label for="p-topic">Topic</label>
+          <select id="p-topic"></select>
+        </div>
+        <div class="field">
+          <label for="p-year">Year</label>
+          <input id="p-year" inputmode="numeric" placeholder="2026">
+        </div>
+      </div>
+      <div class="field">
+        <label for="p-pdf">PDF file</label>
+        <input type="file" id="p-pdf">
+        <div id="drop" class="drop">or drag the PDF here</div>
+        <input id="p-file" placeholder="cashback-tax-reform.pdf">
+        <span class="hint">The PDF is read into this page and travels in the bundle from step 5. Spaces and punctuation are stripped from the filename so it works in a web address; edit the name below if you want something different.</span>
+      </div>
+      <div class="field">
+        <label for="p-summary">Note under the paper</label>
+        <textarea id="p-summary" rows="3" placeholder="Two or three sentences on what the paper argues and what it looked at."></textarea>
+        <span class="hint">Shown in a box beneath the paper on the site. Aim for 30 to 50 words. <span id="wordcount"></span></span>
+      </div>
+      <div class="row">
+        <button class="button" id="add-paper" type="button">Add paper</button>
+        <span class="status" id="status-paper"></span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 style="font-size:1.5rem">4. Papers on file</h2>
+      <table>
+        <thead>
+          <tr><th>Title</th><th>Authors</th><th>Topic</th><th>Year</th><th>Note</th><th></th></tr>
+        </thead>
+        <tbody id="paper-rows"></tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2 style="font-size:1.5rem">5. Publish</h2>
+      <ol class="steps-list">
+        <li>Download the bundle. It's a zip holding <code>data/papers.js</code> and every PDF you attached in this session, already in the right folders.</li>
+        <li>Unzip it over your copy of the site, letting it overwrite <code>data/papers.js</code>.</li>
+        <li>Upload the site as usual.</li>
+      </ol>
+      <div class="row">
+        <button class="button" id="export" type="button">Download bundle</button>
+        <button class="button ghost" id="export-js" type="button">papers.js only</button>
+        <span class="status" id="status-export"></span>
+      </div>
+      <p class="hint" style="margin-top:14px">PDFs are held in the browser for this session only. If you close the page and come back, re-attach the PDF for anything whose file isn't on the site yet — the entry itself survives in <code>papers.js</code>.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="rights" style="margin-top:0;border:0">
+      <span>© 2026 Jovem Brasil. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="data/papers.js"></script>
+<script src="assets/zip.js"></script>
+<script>
+(function () {
+  var data = window.JB_PAPERS && window.JB_PAPERS.topics
+    ? JSON.parse(JSON.stringify(window.JB_PAPERS))
+    : { topics: [], papers: [] };
+
+  var $ = function (id) { return document.getElementById(id); };
+
+  function status(id, text) {
+    var el = $(id);
+    el.textContent = text;
+    setTimeout(function () { if (el.textContent === text) el.textContent = ""; }, 4000);
+  }
+
+  function safeFilename(name) {
+    var dot = name.lastIndexOf(".");
+    var stem = dot > 0 ? name.slice(0, dot) : name;
+    var ext = dot > 0 ? name.slice(dot).toLowerCase() : ".pdf";
+    var clean = stem.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase().replace(/['\u2019]/g, "").replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "").slice(0, 60);
+    return (clean || "paper") + ext;
+  }
+
+  function slug(s) {
+    return s.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  }
+
+  function topicName(id) {
+    var n = id;
+    data.topics.forEach(function (t) { if (t.id === id) n = t.name; });
+    return n;
+  }
+
+  function drawTopics() {
+    var box = $("topic-table");
+    box.innerHTML = "";
+    if (!data.topics.length) {
+      box.innerHTML = '<p class="hint">No topics yet.</p>';
+    } else {
+      var table = document.createElement("table");
+      table.innerHTML = "<thead><tr><th>Topic</th><th>Identifier</th><th>Papers</th><th></th></tr></thead>";
+      var body = document.createElement("tbody");
+      data.topics.forEach(function (topic, i) {
+        var n = data.papers.filter(function (p) { return p.topic === topic.id; }).length;
+        var tr = document.createElement("tr");
+        tr.innerHTML = "<td>" + topic.name + "</td><td><code>" + topic.id + "</code></td><td>" + n + "</td>";
+        var td = document.createElement("td");
+        var b = document.createElement("button");
+        b.className = "mini danger";
+        b.type = "button";
+        b.textContent = "Remove";
+        b.addEventListener("click", function () {
+          if (n > 0) { alert("This topic has " + n + " paper(s). Move them to another topic before removing it."); return; }
+          data.topics.splice(i, 1);
+          drawAll();
+        });
+        td.appendChild(b);
+        tr.appendChild(td);
+        body.appendChild(tr);
+      });
+      table.appendChild(body);
+      box.appendChild(table);
+    }
+
+    var sel = $("p-topic");
+    sel.innerHTML = "";
+    data.topics.forEach(function (topic) {
+      var o = document.createElement("option");
+      o.value = topic.id;
+      o.textContent = topic.name;
+      sel.appendChild(o);
+    });
+  }
+
+  function drawPapers() {
+    var body = $("paper-rows");
+    body.innerHTML = "";
+    if (!data.papers.length) {
+      body.innerHTML = '<tr><td colspan="6" class="hint">Nothing on file. The site shows the "stay tuned" panel.</td></tr>';
+      return;
+    }
+    data.papers.forEach(function (p, i) {
+      var tr = document.createElement("tr");
+      tr.innerHTML =
+        "<td>" + p.title + "<br><code>" + p.file + "</code>" +
+        (blobs[p.file] ? ' <span class="attached">PDF attached</span>' : "") + "</td><td>" + (p.authors || []).join(", ") + "</td><td>" +
+        topicName(p.topic) + "</td><td>" + (p.year || "") + "</td>";
+
+      var noteCell = document.createElement("td");
+      var note = document.createElement("textarea");
+      note.rows = 3;
+      note.value = p.summary || "";
+      note.placeholder = "No note yet.";
+      note.style.minWidth = "220px";
+      note.addEventListener("input", function () { p.summary = this.value; });
+      noteCell.appendChild(note);
+      tr.appendChild(noteCell);
+
+      var td = document.createElement("td");
+      var b = document.createElement("button");
+      b.className = "mini danger";
+      b.type = "button";
+      b.textContent = "Remove";
+      b.addEventListener("click", function () {
+        if (confirm('Remove "' + p.title + '" from the list?')) { data.papers.splice(i, 1); drawAll(); }
+      });
+      td.appendChild(b);
+      tr.appendChild(td);
+      body.appendChild(tr);
+    });
+  }
+
+  function drawAll() { drawTopics(); drawPapers(); }
+
+  $("t-name").addEventListener("input", function () {
+    if (!$("t-id").dataset.touched) $("t-id").value = slug(this.value);
+  });
+  $("t-id").addEventListener("input", function () { this.dataset.touched = "1"; });
+
+  $("add-topic").addEventListener("click", function () {
+    var name = $("t-name").value.trim();
+    var id = slug($("t-id").value.trim() || name);
+    if (!name || !id) { alert("Enter a topic name."); return; }
+    if (data.topics.some(function (t) { return t.id === id; })) { alert("A topic with that identifier already exists."); return; }
+    data.topics.push({ id: id, name: name });
+    $("t-name").value = "";
+    $("t-id").value = "";
+    delete $("t-id").dataset.touched;
+    drawAll();
+  });
+
+  var counter = $("wordcount");
+  $("p-summary").addEventListener("input", function () {
+    var n = this.value.trim().split(/\s+/).filter(Boolean).length;
+    counter.textContent = n ? n + (n === 1 ? " word" : " words") + (n > 60 ? " — getting long" : "") : "";
+  });
+
+  var blobs = {};        /* filename -> Uint8Array, this session only */
+  var pendingPdf = null;  /* Promise resolving to { name, bytes } */
+
+  function readFile(file) {
+    return new Promise(function (resolve, reject) {
+      var r = new FileReader();
+      r.onload = function () { resolve(new Uint8Array(r.result)); };
+      r.onerror = function () { reject(r.error); };
+      r.readAsArrayBuffer(file);
+    });
+  }
+
+  function takePdf(file) {
+    if (!file) { pendingPdf = null; return; }
+    if (!/\.pdf$/i.test(file.name)) {
+      status("status-paper", "That isn't a PDF \u2014 the file needs to end in .pdf.");
+      return;
+    }
+    var tidy = safeFilename(file.name);
+    $("p-file").value = tidy;
+    status("status-paper", "Reading " + file.name + "\u2026");
+    pendingPdf = readFile(file).then(function (bytes) {
+      status("status-paper", "Loaded (" + Math.round(bytes.length / 1024) + " KB)" +
+        (tidy !== file.name ? ", saved as " + tidy : "") + ". Now click Add paper.");
+      return { name: tidy, bytes: bytes };
+    }).catch(function () {
+      status("status-paper", "Couldn't read that file. Try choosing it again.");
+      return null;
+    });
+  }
+
+  $("p-pdf").addEventListener("change", function () {
+    takePdf(this.files && this.files[0]);
+  });
+
+  var drop = $("drop");
+  ["dragenter", "dragover"].forEach(function (ev) {
+    drop.addEventListener(ev, function (e) { e.preventDefault(); drop.classList.add("over"); });
+  });
+  ["dragleave", "drop"].forEach(function (ev) {
+    drop.addEventListener(ev, function () { drop.classList.remove("over"); });
+  });
+  drop.addEventListener("drop", function (e) {
+    e.preventDefault();
+    takePdf(e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]);
+  });
+
+  $("add-paper").addEventListener("click", function () {
+    var title = $("p-title").value.trim();
+    var authors = $("p-authors").value.split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+    var file = $("p-file").value.trim();
+    var topic = $("p-topic").value;
+    if (!title) { alert("The title is missing."); return; }
+    if (!authors.length) { alert("Add at least one author."); return; }
+    if (!file) { alert("The PDF filename is missing."); return; }
+    if (!topic) { alert("Add a topic before adding a paper."); return; }
+
+    var entry = {
+      title: title,
+      authors: authors,
+      topic: topic,
+      year: $("p-year").value.trim(),
+      file: file,
+      summary: $("p-summary").value.trim()
+    };
+
+    var waitFor = pendingPdf || Promise.resolve(null);
+    pendingPdf = null;
+
+    waitFor.then(function (pdf) {
+      if (pdf) blobs[file] = pdf.bytes;
+      data.papers.push(entry);
+
+      ["p-title", "p-authors", "p-year", "p-file", "p-summary"].forEach(function (id) { $(id).value = ""; });
+      $("p-pdf").value = "";
+      counter.textContent = "";
+      drawAll();
+      status("status-paper", pdf
+        ? "Added with its PDF. Download the bundle in step 5."
+        : "Added, but no PDF attached \u2014 the bundle will only carry papers.js.");
+    });
+  });
+
+  $("import").addEventListener("change", function () {
+    var f = this.files && this.files[0];
+    if (!f) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      try {
+        var raw = String(reader.result).replace(/^[\s\S]*?window\.JB_PAPERS\s*=\s*/, "").replace(/;?\s*$/, "");
+        var loaded = JSON.parse(raw);
+        if (!loaded || !Array.isArray(loaded.topics)) throw new Error("shape");
+        data = { topics: loaded.topics, papers: loaded.papers || [] };
+        drawAll();
+        status("status-import", "Loaded: " + data.topics.length + " topic(s), " + data.papers.length + " paper(s).");
+      } catch (e) {
+        status("status-import", "Couldn't read that file. Use the papers.js this page exports.");
+      }
+    };
+    reader.readAsText(f);
+  });
+
+  function papersFileContents() {
+    return "/* Generated by /admin.html \u2014 replace this file with the one the admin page exports. */\n" +
+      "window.JB_PAPERS = " + JSON.stringify(data, null, 2) + ";\n";
+  }
+
+  function download(blob, name) {
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = name;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+  }
+
+  $("export").addEventListener("click", function () {
+    var files = [{
+      name: "data/papers.js",
+      bytes: new TextEncoder().encode(papersFileContents())
+    }];
+
+    Object.keys(blobs).forEach(function (name) {
+      files.push({ name: "papers/" + name, bytes: blobs[name] });
+    });
+
+    download(window.JBZip.build(files), "jovem-brasil-update.zip");
+
+    var n = files.length - 1;
+    status("status-export", "Bundle downloaded: papers.js" + (n ? " and " + n + " PDF" + (n === 1 ? "" : "s") : "") + ".");
+  });
+
+  $("export-js").addEventListener("click", function () {
+    download(new Blob([papersFileContents()], { type: "text/javascript" }), "papers.js");
+    status("status-export", "papers.js downloaded on its own.");
+  });
+
+  drawAll();
+})();
+</script>
+</body>
+</html>
