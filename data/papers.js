@@ -10,25 +10,54 @@ window.JB_PAPERS = {
       "name": "Banking, credit and monetary policy"
     },
     {
-      "id": "privatisation",
-      "name": "Privatisation in Brazil"
-    },
-    {
       "id": "tourism",
       "name": "Tourism and regional development"
+    },
+    {
+      "id": "privatisation-in-brazil",
+      "name": "Privatisation in Brazil"
     }
   ],
   "papers": [
     {
-      "title": "Brazil's Private Credit Market Modernized for Crisis, Not for Prevention",
+      "title": "Privatisation In Brazil",
       "authors": [
-        "Cunningham",
-        "O'Donnell"
+        "Sapoznik"
+      ],
+      "topic": "privatisation-in-brazil",
+      "year": "2026",
+      "file": "privatisation-in-brazil-jovem-brasil.pdf",
+      "summary": "This paper evaluates Brazil's three-decade privatisation programme across heavy industry, telecommunications, electricity, and sanitation. Using an efficiency-versus-welfare framework, it finds privatisation generally boosted productivity and reduced debt, though outcomes depended heavily on accompanying regulation. It proposes a three-tier framework—full privatisation, regulated network utilities, and gradual sale of strategic assets—for evaluating Brazil's future privatisation decisions."
+    },
+    {
+      "title": "Brazil’s Private Credit Market: Modernized for Crisis, Not for Prevention",
+      "authors": [
+        "Cunningham"
       ],
       "topic": "banking",
       "year": "2026",
-      "file": "brazils-private-credit-market.pdf",
+      "file": "brazils-private-credit-market-modernized-for-crisis-not-for-.pdf",
       "summary": "Brazil’s private-credit boom set an all-time issuance record in 2025, drawing nearly a million retail investors into open-ended funds promising daily liquidity against thinly traded corporate debt; echoing 2008’s maturity transformation outside banking. Weighing three partial stress tests, this brief argues Brazil modernized its crisis toolkit but not its prevention layer, proposing liquidity-matched redemptions, swing pricing and joint supervisory stress testing."
+    },
+    {
+      "title": "The Connectedness Among Financial Markets: Volatility Spillovers Before, During, and After the COVID-19 Pandemic",
+      "authors": [
+        "Gullo"
+      ],
+      "topic": "banking",
+      "year": "2026",
+      "file": "final-paper-connectedness-1.pdf",
+      "summary": "This paper tracks volatility spillovers across seven financial markets — including the S&P 500, Bitcoin, gold, and Treasury bonds — before, during, and after COVID-19. Using GARCH models and Granger causality tests, it finds cross-market connectedness spiked sharply during the pandemic, undercutting diversification exactly when investors needed it most."
+    },
+    {
+      "title": "AI sycophancy and Its Effects on Civic Formation and Brazilian Democratic Judgement",
+      "authors": [
+        "Raffaini"
+      ],
+      "topic": "institutions",
+      "year": "2026",
+      "file": "ai-sycophancy-jovembrasil.pdf",
+      "summary": "This brief argues that AI sycophancy — models reinforcing users' existing beliefs rather than challenging them — poses a distinct risk to civic judgement in Brazil, harder to counter than filter bubbles or echo chambers. It reviews the evidence and Brazilian policy gaps, proposing disclosure rules and human-deliberator pairing for AI in civic education."
     }
   ]
 };
