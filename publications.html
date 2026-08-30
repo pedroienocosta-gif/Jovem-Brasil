@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Publications — Jovem Brasil</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="description" content="Jovem Brasil papers as PDFs, grouped by topic.">
+<title>Publicações — Jovem Brasil</title>
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta name="description" content="Artigos da Jovem Brasil em PDF, organizados por tema.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="../assets/styles.css">
 </head>
 <body>
 
@@ -26,9 +26,10 @@
       Jovem Brasil
     </a>
     <nav class="menu">
-      <a href="index.html">Home</a>
-      <a href="who-we-are.html">Who we are</a>
-      <a href="publications.html" aria-current="page">Publications</a>
+      <a href="index.html">Início</a>
+      <a href="who-we-are.html">Quem somos</a>
+      <a href="publications.html" aria-current="page">Publicações</a>
+      <a href="../publications.html" class="lang-switch">EN</a>
     </nav>
   </div>
 </header>
@@ -37,8 +38,8 @@
 
 <section class="hero" style="padding-bottom:0">
   <div class="wrap" style="display:block">
-    <h1>Publications</h1>
-    <p class="lead" style="max-width:50ch">Pick a topic. Every paper opens as a PDF and carries the names of its authors.</p>
+    <h1>Publicações</h1>
+    <p class="lead" style="max-width:50ch">Escolha um tema. Cada artigo abre em PDF e traz o nome de seus autores.</p>
   </div>
 </section>
 
@@ -64,23 +65,26 @@
       </svg>
           Jovem Brasil
         </a>
-        <p style="margin-top:14px">Student think tank. São Paulo, Brazil.</p>
+        <p style="margin-top:14px">Think tank estudantil. São Paulo, Brasil.</p>
       </div>
       <nav>
-        <a href="index.html">Home</a>
-        <a href="who-we-are.html">Who we are</a>
-        <a href="publications.html">Publications</a>
-        <a href="mailto:contact@jovembrasil.org">Contact</a>
+        <a href="index.html">Início</a>
+        <a href="who-we-are.html">Quem somos</a>
+        <a href="publications.html">Publicações</a>
+        <a href="mailto:contact@jovembrasil.org">Contato</a>
+        <a href="../publications.html" class="lang-switch">EN</a>
       </nav>
     </div>
     <div class="rights">
-      <span>© 2026 Jovem Brasil. All rights reserved.</span>
-      <span>Papers remain the responsibility of their authors.</span>
+      <span>© 2026 Jovem Brasil. Todos os direitos reservados.</span>
+      <span>Os artigos são de responsabilidade de seus autores.</span>
     </div>
   </div>
 </footer>
 
-<script src="data/papers.js"></script>
-<script src="assets/site.js"></script>
+<script>window.JB_LANG = "pt"; window.JB_BASE = "../";</script>
+<script src="../data/papers.js"></script>
+<script src="../assets/lang-gate.js"></script>
+<script src="../assets/site.js"></script>
 </body>
 </html>
