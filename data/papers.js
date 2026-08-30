@@ -3,19 +3,23 @@ window.JB_PAPERS = {
   "topics": [
     {
       "id": "institutions",
-      "name": "Institutions and comparative politics"
+      "name": "Institutions and comparative politics",
+      "name_pt": "Instituições e política comparada"
     },
     {
       "id": "banking",
-      "name": "Banking, credit and monetary policy"
+      "name": "Banking, credit and monetary policy",
+      "name_pt": "Bancos, crédito e política monetária"
     },
     {
       "id": "tourism",
-      "name": "Tourism and regional development"
+      "name": "Tourism and regional development",
+      "name_pt": "Turismo e desenvolvimento regional"
     },
     {
       "id": "privatisation-in-brazil",
-      "name": "Privatisation in Brazil"
+      "name": "Privatisation in Brazil",
+      "name_pt": "Privatização no Brasil"
     }
   ],
   "papers": [
@@ -27,7 +31,8 @@ window.JB_PAPERS = {
       "topic": "privatisation-in-brazil",
       "year": "2026",
       "file": "privatisation-in-brazil-jovem-brasil.pdf",
-      "summary": "This paper evaluates Brazil's three-decade privatisation programme across heavy industry, telecommunications, electricity, and sanitation. Using an efficiency-versus-welfare framework, it finds privatisation generally boosted productivity and reduced debt, though outcomes depended heavily on accompanying regulation. It proposes a three-tier framework—full privatisation, regulated network utilities, and gradual sale of strategic assets—for evaluating Brazil's future privatisation decisions."
+      "summary": "This paper evaluates Brazil's three-decade privatisation programme across heavy industry, telecommunications, electricity, and sanitation. Using an efficiency-versus-welfare framework, it finds privatisation generally boosted productivity and reduced debt, though outcomes depended heavily on accompanying regulation. It proposes a three-tier framework—full privatisation, regulated network utilities, and gradual sale of strategic assets—for evaluating Brazil's future privatisation decisions.",
+      "summary_pt": "Este artigo avalia três décadas de privatizações no Brasil, na indústria pesada, telecomunicações, energia elétrica e saneamento. Usando uma estrutura de eficiência versus bem-estar, conclui que a privatização geralmente aumentou a produtividade e reduziu a dívida, embora os resultados dependam muito da regulação que a acompanha. Propõe um modelo de três níveis — privatização plena, concessão regulada e venda gradual de ativos estratégicos — para avaliar futuras decisões de privatização no país."
     },
     {
       "title": "Brazil’s Private Credit Market: Modernized for Crisis, Not for Prevention",
@@ -37,7 +42,8 @@ window.JB_PAPERS = {
       "topic": "banking",
       "year": "2026",
       "file": "brazils-private-credit-market-modernized-for-crisis-not-for-.pdf",
-      "summary": "Brazil’s private-credit boom set an all-time issuance record in 2025, drawing nearly a million retail investors into open-ended funds promising daily liquidity against thinly traded corporate debt; echoing 2008’s maturity transformation outside banking. Weighing three partial stress tests, this brief argues Brazil modernized its crisis toolkit but not its prevention layer, proposing liquidity-matched redemptions, swing pricing and joint supervisory stress testing."
+      "summary": "Brazil’s private-credit boom set an all-time issuance record in 2025, drawing nearly a million retail investors into open-ended funds promising daily liquidity against thinly traded corporate debt; echoing 2008’s maturity transformation outside banking. Weighing three partial stress tests, this brief argues Brazil modernized its crisis toolkit but not its prevention layer, proposing liquidity-matched redemptions, swing pricing and joint supervisory stress testing.",
+      "summary_pt": "O crédito privado no Brasil bateu recorde de emissões em 2025, atraindo quase um milhão de investidores de varejo para fundos que prometem liquidez diária sobre dívida corporativa pouco negociada — ecoando a transformação de prazos que gerou a crise de 2008 fora do setor bancário. A partir de três testes parciais de estresse, o artigo argumenta que o Brasil modernizou seu kit de resposta a crises, mas não sua camada de prevenção, e propõe resgates ajustados à liquidez, swing pricing e testes de estresse conjuntos entre reguladores."
     },
     {
       "title": "The Connectedness Among Financial Markets: Volatility Spillovers Before, During, and After the COVID-19 Pandemic",
@@ -47,7 +53,8 @@ window.JB_PAPERS = {
       "topic": "banking",
       "year": "2026",
       "file": "final-paper-connectedness-1.pdf",
-      "summary": "This paper tracks volatility spillovers across seven financial markets — including the S&P 500, Bitcoin, gold, and Treasury bonds — before, during, and after COVID-19. Using GARCH models and Granger causality tests, it finds cross-market connectedness spiked sharply during the pandemic, undercutting diversification exactly when investors needed it most."
+      "summary": "This paper tracks volatility spillovers across seven financial markets — including the S&P 500, Bitcoin, gold, and Treasury bonds — before, during, and after COVID-19. Using GARCH models and Granger causality tests, it finds cross-market connectedness spiked sharply during the pandemic, undercutting diversification exactly when investors needed it most.",
+      "summary_pt": "Este artigo acompanha o contágio de volatilidade entre sete mercados financeiros — incluindo o S&P 500, Bitcoin, ouro e títulos do Tesouro americano — antes, durante e depois da COVID-19. Usando modelos GARCH e testes de causalidade de Granger, mostra que a conexão entre mercados disparou durante a pandemia, justamente quando a diversificação mais fazia falta aos investidores."
     },
     {
       "title": "AI sycophancy and Its Effects on Civic Formation and Brazilian Democratic Judgement",
@@ -57,7 +64,8 @@ window.JB_PAPERS = {
       "topic": "institutions",
       "year": "2026",
       "file": "ai-sycophancy-jovembrasil.pdf",
-      "summary": "This brief argues that AI sycophancy — models reinforcing users' existing beliefs rather than challenging them — poses a distinct risk to civic judgement in Brazil, harder to counter than filter bubbles or echo chambers. It reviews the evidence and Brazilian policy gaps, proposing disclosure rules and human-deliberator pairing for AI in civic education."
+      "summary": "This brief argues that AI sycophancy — models reinforcing users' existing beliefs rather than challenging them — poses a distinct risk to civic judgement in Brazil, harder to counter than filter bubbles or echo chambers. It reviews the evidence and Brazilian policy gaps, proposing disclosure rules and human-deliberator pairing for AI in civic education.",
+      "summary_pt": "Este artigo argumenta que a bajulação da IA — modelos que reforçam o que o usuário já acredita em vez de questionar — representa um risco distinto para o julgamento cívico no Brasil, mais difícil de conter do que bolhas de filtro ou câmaras de eco. Revisa as evidências e as lacunas da política brasileira, propondo regras de transparência e a presença de um mediador humano no uso de IA na educação cívica."
     }
   ]
 };
