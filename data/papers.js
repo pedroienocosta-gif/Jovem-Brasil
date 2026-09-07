@@ -65,7 +65,29 @@ window.JB_PAPERS = {
       "year": "2026",
       "file": "ai-sycophancy-jovembrasil.pdf",
       "summary": "This brief argues that AI sycophancy — models reinforcing users' existing beliefs rather than challenging them — poses a distinct risk to civic judgement in Brazil, harder to counter than filter bubbles or echo chambers. It reviews the evidence and Brazilian policy gaps, proposing disclosure rules and human-deliberator pairing for AI in civic education.",
-      "summary_pt": "Este artigo argumenta que a bajulação da IA — modelos que reforçam o que o usuário já acredita em vez de questionar — representa um risco distinto para o julgamento cívico no Brasil, mais difícil de conter do que bolhas de filtro ou câmaras de eco. Revisa as evidências e as lacunas da política brasileira, propondo regras de transparência e a presença de um mediador humano no uso de IA na educação cívica."
+      "summary_pt": "Este artigo argumenta que a sicofania da IA — modelos que reforçam o que o usuário já acredita em vez de questionar — representa um risco distinto para o julgamento cívico no Brasil, mais difícil de conter do que bolhas de filtro ou câmaras de eco. Revisa as evidências e as lacunas da política brasileira, propondo regras de transparência e a presença de um mediador humano no uso de IA na educação cívica."
+    },
+    {   
+      "title": "Brazil's High Interest Rate: Fighting Inflation, or Paying the Wealthy to Lend?",
+      "authors": [
+        "Makins"
+      ],
+      "topic": "banking",
+      "year": "2026",
+      "file": "Thinktank_paper_-_final_draft.pdf",
+      "summary": "Brazil's benchmark interest rate sits nearly ten points above inflation, a gap defended on historical and fiscal-dominance grounds but rarely tested against comparable economies. This paper argues the deeper problem lies not in the rate itself but in the debt structure built around it: with nearly half of public debt now indexed directly to the Selic, the same tool used to fight inflation doubles as a guaranteed income stream for the banks, funds and wealthy investors who hold it.",
+      "summary_pt": "A taxa básica de juros do Brasil está quase dez pontos percentuais acima da inflação, uma diferença justificada por razões históricas e de dominância fiscal, mas raramente testada em comparação com economias semelhantes. Este artigo argumenta que o problema mais profundo não está na taxa em si, mas na estrutura da dívida construída em torno dela: com quase metade da dívida pública hoje indexada diretamente à Selic, a mesma ferramenta usada para combater a inflação também funciona como uma fonte garantida de renda para bancos, fundos e investidores mais ricos que a detêm."
+    },
+    {
+      "title": "Does PIX Usage Move the Fees of Cards? A Quantitative Check on Brazilian Credit Card Interest Rates and Merchant Fees",
+      "authors": [
+        "Guimarães"
+      ],
+      "topic": "banking",
+      "year": "2026",
+      "file": "PIX_Card_Rates_Quantitative_Analysis.pdf",
+      "summary": "PIX is widely credited with lowering the cost of retail payments in Brazil, but this paper tests that claim directly against five years of Central Bank data on card interest rates and merchant fees. It finds no evidence of a competitive effect: the revolving credit card rate rose in step with PIX's growth (r = 0.92), while merchant fees moved only where regulation, not PIX, was already at work.",
+      "summary_pt": "O PIX é amplamente associado à redução do custo dos pagamentos no varejo no Brasil, mas este artigo testa essa afirmação diretamente, usando cinco anos de dados do Banco Central sobre juros de cartão e taxas de comerciantes. Não encontra evidência de um efeito competitivo: a taxa do rotativo do cartão de crédito subiu junto com o crescimento do PIX (r = 0,92), enquanto as taxas de comerciantes só se moveram onde a regulação — não o PIX — já atuava."
     }
   ]
 };
